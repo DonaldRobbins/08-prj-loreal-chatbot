@@ -11,6 +11,7 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
+  background: #FF003B; /* Set the background to bright red */
 }
 
 .page-wrapper {
@@ -37,7 +38,7 @@ body {
 
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 1px solid #efbf04; /* Changed border color to gold */
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;

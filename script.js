@@ -10,7 +10,8 @@ chatWindow.textContent = "👋 Hello! How can I help you today?";
 let messages = [
   {
     role: "system",
-    content: "You are a helpful assistant for product advice.",
+    content:
+      "You are a helpful assistant for L’Oréal product advice. Only answer questions related to L’Oréal products, beauty routines, recommendations, or beauty-related topics. If a question is not related to these topics, politely reply: 'I'm here to help with L’Oréal products, routines, and beauty-related questions. Please ask me something in those areas!'",
   },
 ];
 
@@ -38,19 +39,24 @@ chatForm.addEventListener("submit", async (e) => {
 
   try {
     // Send the messages to your Cloudflare Worker
-    const response = await fetch("https://wanderbot-worker.sirdj811.workers.dev/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ messages: messages }),
-    });
+    const response = await fetch(
+      "https://wanderbot-worker.sirdj811.workers.dev/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ messages: messages }),
+      }
+    );
 
     // Log the response status for debugging
     console.log("Response status:", response.status);
 
     // Check if the response has content before parsing as JSON
-    const text = await response.text("https://wanderbot-worker.sirdj811.workers.dev/");
+    const text = await response.text(
+      "https://wanderbot-worker.sirdj811.workers.dev/"
+    );
     console.log("Raw response text:", text);
 
     let data = {};
